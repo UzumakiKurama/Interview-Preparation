@@ -1,5 +1,5 @@
 # Inheritance 
-As we already know objects in javascript has a default hidden property called [[prototype]] which is either null or references another object. Prototypal inheritance uses prototype to extend an object's properties to another object. For example let's consider a Employee function :- 
+As we already know objects in javascript has a default hidden property called prototype which is either null or references another object. Prototypal inheritance uses prototype to extend an object's properties to another object. For example let's consider a Employee function :- 
 
 ```js
 function employee(name, age){
