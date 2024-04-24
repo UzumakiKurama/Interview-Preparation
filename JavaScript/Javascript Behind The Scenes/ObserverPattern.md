@@ -1,0 +1,2 @@
+# Observer Design Pattern 
+In Node.js, the Observer pattern is already built into the core and is available through the EventEmitter class. The EventEmitter class allows us to register one or more functions as listeners, which will be invoked when a particular event type is fired.

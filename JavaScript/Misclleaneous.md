@@ -13,7 +13,7 @@
 
 7. Javascript is a dynamic typed language. We don't assign data types to variables when writing JS, instead they are only assigned on run time. 
 
-8. Javascript is a single threaded language which means it has only one call stack that is used to execute the program. Hence it is synchornous in nature
+8. Javascript is a single threaded language which means it has only one call stack that is used to execute the program. Hence it is synchornous in nature. You can write async code when js is run in different enviornments like window or nodejs.
 
 9. Javascript's non-blocking concurrency model is implemented using something called Event Loop. 
 
