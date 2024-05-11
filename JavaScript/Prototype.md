@@ -5,7 +5,8 @@ Every Object in javascript has a built-in-property called prototype. The prototy
 
 When we try to access a property of an object, it will first try to find inside the object if the property is not there then it will search inside the prototype object and it will keep doing so untill it finds null as prototype 
 
-[[NOTE : __proto__ is a historical getter/setter for [[Prototype]]. __proto__ is not same as [[Prototype]]]]
+    __proto__ is a historical getter/setter for Prototype
+    .__proto__ is not same as Prototype
 
 ```js
 const Emp = {
@@ -16,8 +17,6 @@ const Emp = {
         position : "Software Engineer"
     }
 }
-
-// NOTE : __proto__ is a historical getter/setter for [[Prototype]]. __proto__ is not same as [[Prototype]]
 
 console.log(Object.getPrototypeOf(Emp)); // {position : "Software Engineer"}
 console.log(Emp.position); 

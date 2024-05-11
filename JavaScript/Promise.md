@@ -1,7 +1,7 @@
 # Promise
 <ul>
 <li> A promise is an object that encapsulates the result of an asynchronous operation.
-<li>A promise starts in the pending state and ends in either a fulfilled state or a rejected state.
+<li>A promise starts in the pending state and ends in either a resolved state or a rejected state.
 <li>Use then() method to schedule a callback to be executed when the promise is fulfilled, and catch() method to schedule a callback to be invoked when the promise is rejected.
 <li>Place the code that you want to execute in the finally() method whether the promise is fulfilled or rejected.
 </ul>

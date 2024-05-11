@@ -11,26 +11,19 @@ function employee(name, age){
 Now a company can have sales, marketing, accounting employees which can inherit the above emplopyee function properties 
 
 ```js
-function employeeDepartment(name,age,department){
-    employee.call(this, name, age);
-    this.department = department;
+function department(dept){
+    this.dept = dept;
 }
 
-// To inherit the employee function 
-Object.setPrototypeOf(employeeDepartment.prototype, employee.prototype);
+Object.setPrototypeOf(department.prototype, Employee.prototype)
 
-// To see the prototype of employeeDepartment
-console.log(employeeDepartment.prototype); // employee {constructor: ƒ}
+Employee.prototype.printName = function(name){
+    console.log(name);
+}
 
+const me = new department("Finance");
 
-console.log(Object.getPrototypeOf(employeeDepartment.prototype)); ////{getName: ƒ, constructor: ƒ}
-
-const Abhijeet = employeeDepartment("Abhijeet", 23, "Engineering");
-//At this point we can guess the output 
-console.log(Abhijeet.name);
-console.log(Abhijeet.age);
-console.log(Abhijeet.department);
-
+me.printName("Abhijeet");
 ```
 In class terms, this is equivalent to using the extends syntax.
 Inheritance using ES6 Class is just syntatical sugar over prototypal inheritance. It adds a level of abstraction over prototype.

@@ -113,7 +113,7 @@ Event delegation is a JavaScript programming technique used to efficiently handl
 const commonParent = document.getElementByClassName("commonParent");
 commonParent.addEventListener('click', ()=>{
     if(event.target.tagName == "li"){
-        console.log(event.targe.textContent)
+        console.log(event.target.textContent)
     }
 })
 
@@ -176,4 +176,25 @@ const debouncedFunction = debounce((text)=>{
 input.addEventListener('input', (e)=>{
     debouncedFunction(e.target.value);
 })
+```
+
+## Throttle
+
+Throttling is a technique in which, no matter how many times the user fires the event, the attached function will be executed only once in a given time interval.
+```js
+function throttle(cb, delay) {
+  let wait = false;
+
+  return (...args) => {
+    if (wait) {
+        return;
+    }
+
+    cb(...args);
+    wait = true;
+    setTimeout(() => {
+      wait = false;
+    }, delay);
+  }
+}
 ```
