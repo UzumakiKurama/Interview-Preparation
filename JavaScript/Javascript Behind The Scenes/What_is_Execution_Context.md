@@ -5,4 +5,4 @@ In the beginning only the code that resides outside of the functions is executed
 + A Global Execution Context is created for the top level code. Top level code refers to function/varibale declartions, function expressions etc.
 An execution context can be thought of as a enviorment which executes a piece of js code, it contains all the neccessary information required for execution. 
 
-+
++ 

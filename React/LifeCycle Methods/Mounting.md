@@ -1,5 +1,9 @@
 # Mounting
-Component has mounted means that now user can see it on screen. Below lifecycles are called in following order during the mounting phase :- 
+When a component first appeard on the screen, it is known as mounting. This is when React creates this component's instance for the first time, initializes its state, runs its hooks, and appends elements to the DOM.
+The end result - we see whatever we render in this component on the
+screen.
+
+Below lifecycles are called in following order during the mounting phase :- 
 
  ## Constructor
 It's feature of class based components, and not something special that react provides. You use it to initialize the component's state and bind methods to the component's instance

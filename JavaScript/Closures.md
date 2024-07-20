@@ -32,3 +32,19 @@ cls.getNum(); // 3
 cls.decrement();
 cls.getNum(); // 2 
 ```
+
+```js
+function fn(){
+    var a = 10;
+    if(a > 6){
+        console.log(a);
+        var a = 15; // What would be the output if I used let instead of var here ?
+    }
+    a = 20;
+}
+
+fn();
+// Guess the output 
+```
+
+To know more about closures in react :- <a href="https://www.developerway.com/posts/fantastic-closures">Closures By Nadia Makarevich</a> the best content on react advanced topics out there

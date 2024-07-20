@@ -79,6 +79,25 @@ Use Cases Of IIFE
 + It is used in JQuery Library
 + It is used to work with require function
 
+# Async and Defer 
+
++ Defer : The defer attribute tells the browser not to wait for the script and the broswer will continue to parse the whole HTML. In the background the defer script will keep on downloading and once the DOM is built, then the script gets executed 
+    + Scripts with defer never block the page.
+    + Scripts with defer always execute when the DOM is ready (but before DOMContentLoaded event).
+    + Deferred scripts keep their relative order, just like regular scripts.
+```js
+<script defer src="https://javascript.info/article/script-async-defer/long.js"></script>
+<script defer src="https://javascript.info/article/script-async-defer/small.js"></script>
+// Browsers scan the page for scripts and download them in parallel, to improve performance. So in the example above both scripts download in parallel. The small.js probably finishes first.But the defer attribute, besides telling the browser “not to block”, ensures that the relative order is kept. So even though small.js loads first, it still waits and runs after long.js executes.
+ ```
+ + The async attribute is somewhat like defer. It also makes the script non-blocking. But it has important differences in the behavior.
+
+    + The async attribute means that a script is completely independent:
+
+    + The browser doesn’t block on async scripts (like defer).
+    Other scripts don’t wait for async scripts, and async scripts don’t wait for them.
+
+
 # Currying
 It is a technique in functional programming, that transforms the function of multiple arguments into several functions of a single argument in sequence. 
 
@@ -95,6 +114,21 @@ function calculateVolume(length) {
         }
     }
 }
+
+function curry(func) {
+    function curried(...args) {
+        if(args.length >= func.length) {
+            return func(...args);
+        } else {
+            return function(...more) {
+                return curried(...args,...more);
+            }
+        }
+    }
+    return curried;
+}
+
+
 console.log(calculateVolume(4)(5)(6)); //120 
 ```
 # Event Delegation
