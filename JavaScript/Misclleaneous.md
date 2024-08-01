@@ -214,21 +214,31 @@ input.addEventListener('input', (e)=>{
 
 ## Throttle
 
-Throttling is a technique in which, no matter how many times the user fires the event, the attached function will be executed only once in a given time interval.
+Throttling is a technique used in JavaScript to limit the frequency at which a function can be called within a specific time period. It ensures that a function is executed at a consistent rate, regardless of how often it's invoked
 ```js
 function throttle(cb, delay) {
   let wait = false;
+  let lastArgs = null;
+
+  function waiting(){
+    if(lastArgs == null){
+        wait = true;
+    }else{
+        cb(lastArgs); // This is to call the function with the last 
+        lastArgs = null;
+        setTimeout(waiting, delay)
+    }
+  }
 
   return (...args) => {
     if (wait) {
+        lastArgs = args;
         return;
     }
 
     cb(...args);
     wait = true;
-    setTimeout(() => {
-      wait = false;
-    }, delay);
+    setTimeout(waiting, delay);
   }
 }
 ```
