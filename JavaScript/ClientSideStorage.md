@@ -41,3 +41,9 @@ localStorage.setItem("user-name", "Abhijeet Behera");
 localStorage.getItem("user-name");
 // Same for sessionStorage
 ```
+
+    Cookies and local storage serve different purposes. Cookies are primarily for reading server-side, local storage can only be read by the client-side.
+
+    Apart from being an old way of saving data, Cookies give you a limit of 4096 bytes (4095, actually) — it's per cookie. 
+    
+    Local Storage is as big as 10MB per domain localStorage is an implementation of the Storage Interface. It stores data with no expiration date, and gets cleared only through JavaScript, or clearing the Browser Cache / Locally Stored Data — unlike cookie expiry.

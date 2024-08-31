@@ -5,7 +5,6 @@ For example, Math.trunc(n) is a function that “cuts off” the decimal part of
 In some (very outdated) JavaScript engines, there’s no Math.trunc, so such code will fail. A script that updates/adds new functions is called “polyfill”. It “fills in” the gap and adds missing implementations.
 
 ## Polyfill for Array.map() 
-
 ```js
 Array.prototype.customMap = function(fn){
     let tempArr = [];
@@ -64,6 +63,78 @@ Function.prototype.customBind = function(obj, ...args){
     }
 }
 ```
+## Polyfill for Array.flat()
+```js
+Array.prototype.myFlat = function(depth){
+    let flattendArr = [];
+    
+    function flatArr(arr, currDepth){
+        for(let i=0; i<arr.length; i++){
+            if(Array.isArray(arr[i]) && currDepth < depth){
+                flatArr(arr[i], currDepth+1);
+            }else{
+                flattendArr.push(arr[i]);
+            }
+        }
+    }
+    
+    flatArr(this, 0);
+    return flattendArr;
+}
+```
+
+# Polyfills for Promises
+
+## Polyfill for Promise
+```js
+// A Promise class excepts a function as a constructor
+function MyPromise(executor){
+
+    let onResolve, onReject;
+    let isCalled = false;
+    let isFullfilled = false;
+    let isRejected = false;
+    let resolveVal, rejectErr;
+
+    this.then = function(thenHandler){
+        onResolve = thenHandler;
+        if(!isCalled && isFullfilled){
+            onResolve(resolveVal);
+            isCalled = true;
+        }
+        return this;
+    };
+
+    this.catch = function(catchHandler){
+        onReject = catchHandler;
+        if(!isCalled && isRejected){
+            onReject(rejectErr);
+            isCalled = true;
+        }
+        return this;
+    }
+
+    function resolve(res){
+        resolveVal = res;
+        isFullfilled = true;
+        if(typeof onResolve === "function" && !isCalled){
+            onResolve(res);
+            isCalled = true;
+        }
+    }
+
+    function reject(err){
+        rejectErr = err;
+        isRejected = true;
+        if(typeof onResolve === "function" && !isCalled){
+            onReject(err);
+            isCalled = true;
+        }
+    }
+
+    executor(resolve, reject);
+}
+```
 
 ## Polyfill for Promise.All()
 ```js
@@ -98,3 +169,4 @@ Promise.myAll([promise1, promise2, promise3])
     .then(res => console.log(res))
     .catch(err => console.log(err));
 ```
+

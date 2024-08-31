@@ -65,7 +65,6 @@ class Employee{
 let employee4 = new Employee(1,"Shanko"); // 4th
 ```
 
-
 # IIFE (Immediately Invoked Function Expressions)
 It is a function that runs as soon as it is defined. This kind of function does not have a name i.e. an anonymous function. 
 
@@ -79,7 +78,7 @@ Use Cases Of IIFE
 + It is used in JQuery Library
 + It is used to work with require function
 
-# Async and Defer 
+# Async and Defer attribute to load scripts
 
 + Defer : The defer attribute tells the browser not to wait for the script and the broswer will continue to parse the whole HTML. In the background the defer script will keep on downloading and once the DOM is built, then the script gets executed 
     + Scripts with defer never block the page.
@@ -114,22 +113,32 @@ function calculateVolume(length) {
         }
     }
 }
+console.log(calculateVolume(4)(5)(6)); //120 
 
-function curry(func) {
-    function curried(...args) {
-        if(args.length >= func.length) {
+function curry(func){
+    function curried(...args){
+        if(args.length >= func.length){
             return func(...args);
-        } else {
-            return function(...more) {
-                return curried(...args,...more);
+        }else{
+            return function(...more){
+                return curried(...args, ...more);
             }
         }
     }
+    
     return curried;
 }
 
+function mul(a,b,c){
+    return a*b*c
+}
+const multiply = curry(mul);
 
-console.log(calculateVolume(4)(5)(6)); //120 
+console.log(multiply(1)(2)(3)); // 6
+console.log(multiply(1,2)(3));  // 6
+console.log(multiply(1,2,3));   // 6
+
+
 ```
 # Event Delegation
 Event delegation is a JavaScript programming technique used to efficiently handle events on multiple elements by assigning a single event listener to a common ancestor element. 

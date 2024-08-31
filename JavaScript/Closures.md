@@ -34,6 +34,7 @@ cls.getNum(); // 2
 ```
 
 ```js
+// The below question is a concept of scoping, hositing and closures both.
 function fn(){
     var a = 10;
     if(a > 6){

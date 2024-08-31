@@ -145,7 +145,7 @@ let thisArrow = () => {
 
 <li> We can not use named duplicate parameters in arrow functions. It will give an syntax based errors. 
 
-<li> Arrow functions are not hoisted to the top level of code and hence if accessed before intialization it will give you error.
+<li> Arrow functions are not hoisted to the top level of code irresepective of what keyword is used to declare them and hence if accessed before intialization it will give you error.
 
 <li>Arrow functions, on the other hand, do not have their own this context. Instead, they capture the this value from the surrounding lexical context in which the arrow function was created. In the above code that is <mark style="background-color: #FFF">&nbsp;Window&nbsp;</mark>.  </li> 
 </ul>

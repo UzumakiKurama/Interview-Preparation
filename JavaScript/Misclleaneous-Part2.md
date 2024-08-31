@@ -112,3 +112,12 @@ let obj = { a: 1, b: 2, c: 3 };
 let objCopy = { ...obj };
 
 ```
+
+# this keyword
+
+this keyword refers to the object that is calling a function in which this keword is used. It's value is determined dynamically at runtime and depends on the context in which the function is executed. 
+
+1. Outside the functions this refers to the <mark>global object i.e the [window].
+2. Regular functions (functions declared using function keywords) refer to the global window as the execution context.
+3. Method calls use the calling object as their execution context.
+4. How this is bound depends on how a function is invoked rather than on where it’s defined.
